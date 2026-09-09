@@ -1,39 +1,40 @@
-import 'dart:developer';
 import 'dart:io';
 
 void main() {
-  double iva = 0.13;
+  const double iva = 0.13;
   double precioUnitario = 1.00;
-  double cantidadProductos = 15;
-  int acumulador = 0;
-  double? subtotal;
-  double? total;
+  int cantidadProductos = 15;
   bool membresia = false;
 
-  subtotal = precioUnitario * cantidadProductos;
+  double subtotal = precioUnitario * cantidadProductos;
+  double porcentajeDescuento = 0.0;
 
   if (subtotal > 100) {
-    subtotal = subtotal - (subtotal * 0.5);
-    acumulador += 5;
+    porcentajeDescuento += 0.05;
   } else {
     print('La compra no supera el 100 de subtotal no aplica descuento');
   }
 
   if (membresia == true) {
-    subtotal = subtotal - (subtotal * 0.3);
-    acumulador += 3;
+    porcentajeDescuento += 0.03;
   } else {
     print('no tiene membresia no aplica el descuento');
   }
 
-  if (acumulador >= 15) {
+  if (porcentajeDescuento >= 0.15) {
     print('Ha excedido el limite de descuento');
   }
 
-  double subtotalIva = subtotal * iva;
-  total = subtotal + subtotalIva;
+  double montoDescuento = subtotal * porcentajeDescuento;
+  double subtotalConDescuento = subtotal - montoDescuento;
+  double montoIVA = subtotalConDescuento * iva;
+  double total = subtotalConDescuento + montoIVA;
 
-  print('Subtotal: ${subtotal.toStringAsFixed(2)}');
-  print('Impuesto IVA: ${subtotalIva.toStringAsFixed(2)}');
-  print('Total: ${total.toStringAsFixed(2)}');
+  print('Subtotal inicial: \$${subtotal.toStringAsFixed(2)}');
+  print(
+    'Descuento aplicado (${(porcentajeDescuento * 100).toInt()}%): -\$${montoDescuento.toStringAsFixed(2)}',
+  );
+  print('Subtotal gravable: \$${subtotalConDescuento.toStringAsFixed(2)}');
+  print('Impuesto IVA (13%): \$${montoIVA.toStringAsFixed(2)}');
+  print('Total a pagar: \$${total.toStringAsFixed(2)}');
 }
