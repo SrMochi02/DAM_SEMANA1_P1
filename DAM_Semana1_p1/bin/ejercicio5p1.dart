@@ -3,13 +3,18 @@ void main() {
   //el divisor nunca puede ser 0 asi que se le asigna valor al divisor.
   double divisor = 2.0;
   int numero = 10;
-  double? resultado;
   //cambio 2
   if (numero > 5) {
     //cambio 3
     double resultado = numero / divisor;
+
+    //cambio 4
+    print('Resultado: $resultado')
+  }else{
+    print('El numero no cumple con la funcion');
   }
 
+  
   String x = "Hola"; // nombre poco descriptivo
   print(x);
   print(resultado); // variable nullable sin tratamiento
