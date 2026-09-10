@@ -28,3 +28,26 @@ String generarRecomendacion(double promedio, double asistencia) {
     return 'Necesita apoyo academico intensivo.';
   }
 }
+
+void main() {
+  stdout.write('Ingrese el nombre del estudiante');
+  String nombre = (stdin.readLineSync() ?? '') ?? 'No registrado';
+
+  stdout.write('Ingrese codigo del estudiante');
+  String codigo = stdin.readLineSync() ?? 'No registrado';
+
+  stdout.write('Ingrese la calificacion 1 (0-10)');
+  double n1 = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0;
+
+  stdout.write('Ingrese la calificacion 2 (0-10)');
+  double n2 = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0;
+
+  stdout.write('Ingrese la calificacion n3 (0-10)');
+  double n3 = double.tryParse(stdin.readLineSync() ?? '') ?? 0.0;
+
+  if (n1 < 0 || n1 > 10 || n2 < 0 || n2 > 10 || n3 < 0 || n3 > 10) {
+    print('Error: Las calificaciones deben estar en 0 y 10.');
+    return;
+  }
+  
+}
