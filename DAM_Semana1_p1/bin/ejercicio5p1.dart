@@ -9,13 +9,12 @@ void main() {
     double resultado = numero / divisor;
 
     //cambio 4
-    print('Resultado: $resultado')
-  }else{
+    print('Resultado: $resultado');
+  } else {
     print('El numero no cumple con la funcion');
   }
 
-  
-  String x = "Hola"; // nombre poco descriptivo
-  print(x);
-  print(resultado); // variable nullable sin tratamiento
+  //cambio 5
+  String mensaje = 'Hola bienvenido';
+  print(mensaje);
 }
