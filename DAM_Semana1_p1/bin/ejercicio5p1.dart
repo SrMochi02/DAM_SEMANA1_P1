@@ -1,0 +1,20 @@
+void main() {
+  //cambio 1 tipo correcto para el divisor
+  //el divisor nunca puede ser 0 asi que se le asigna valor al divisor.
+  double divisor = 2.0;
+  int numero = 10;
+  //cambio 2
+  if (numero > 5) {
+    //cambio 3
+    double resultado = numero / divisor;
+
+    //cambio 4
+    print('Resultado: $resultado');
+  } else {
+    print('El numero no cumple con la funcion');
+  }
+
+  //cambio 5
+  String mensaje = 'Hola bienvenido';
+  print(mensaje);
+}
